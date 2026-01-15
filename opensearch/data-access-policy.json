@@ -1,0 +1,29 @@
+[
+  {
+    "Rules": [
+      {
+        "ResourceType": "collection",
+        "Resource": ["collection/opensearch-cdc"],
+        "Permission": [
+          "aoss:DescribeCollectionItems",
+          "aoss:CreateCollectionItems",
+          "aoss:UpdateCollectionItems"
+        ]
+      },
+      {
+        "ResourceType": "index",
+        "Resource": ["index/opensearch-cdc/*"],
+        "Permission": [
+          "aoss:CreateIndex",
+          "aoss:DescribeIndex",
+          "aoss:WriteDocument",
+          "aoss:ReadDocument"
+        ]
+      }
+    ],
+    "Principal": [
+      "arn:aws:iam::<ACCOUNT_ID>:role/KinesisFirehoseServiceRole-*"
+    ],
+    "Description": "Allow Firehose CDC ingestion"
+  }
+]
